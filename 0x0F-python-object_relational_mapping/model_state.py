@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-"""
-Contains State class and Base, an instance of declarative_base()
-"""
-from sqlalchemy import Column, Integer, String, MetaData
+# Write a file that contains class defns of a State and an instance
+# Base = delcarative_base()
+# State class:
+# inherits from Base class, links to MySQL table 'states',
+# has columns id and name
+# Must use SQLAlchemy
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
-mymetadata = MetaData()
-Base = declarative_base(metadata=mymetadata)
+Base = declarative_base()
 
 
 class State(Base):
-    """
-    Class with id and name attributes of each state
-    """
     __tablename__ = 'states'
-    id = Column(Integer, unique=True, nullable=False, primary_key=True)
+    id = Column(Integer, primary_key=True,
+                nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)

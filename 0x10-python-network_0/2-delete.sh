@@ -1,3 +1,3 @@
 #!/bin/bash
-# Take in URL, send DELETE request, display response body; Usage: ./2-delete.sh 0.0.0.0:5000/route_3 ; echo ""
-curl -sX DELETE "$1"
+# Sends a DELETE request to the URL passed as the first argument and displays the body of the response
+curl $1 -s -X DELETE
